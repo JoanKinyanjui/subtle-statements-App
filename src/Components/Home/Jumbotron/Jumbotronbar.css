@@ -1,0 +1,19 @@
+.Jumbotronbar{
+    color: black;
+    width: 100vw;
+    height: 8vh;
+    line-height: 8vh;
+    background-color:  rgb(246, 214, 185);
+
+
+}
+.Jumbotronbar ul{
+    display: flex;
+    padding-top: 0rem;
+    font-size: 11px;
+    list-style-type: none;
+}
+.Jumbotronbar ul li{
+    margin: auto;
+    color: sa;
+}

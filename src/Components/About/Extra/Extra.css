@@ -1,0 +1,47 @@
+.Extra{
+    width: 100vw;
+    height: max-content;
+    background-color: rgb(246, 214, 185);
+    font-family: System;
+    text-align: center;
+    display: flex;
+    padding-bottom: 3rem;
+    margin-bottom: 4rem;
+}
+@media only screen and (max-width: 960px){
+    .Extra{
+        display: block;
+    }
+    .theory h3{
+        padding-top: 2rem;
+    }
+}
+.theory{
+    flex: 50%;
+    width: 100%;
+    margin: auto;
+
+}
+
+.theory p{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.practical{
+    width: 100%;
+    flex: 50%;
+    height: max-content;
+    display: flex;
+    flex-wrap: wrap;
+}
+.practical img{
+    width: 20vw;
+    height: 30vh;
+    margin: auto;
+    margin-bottom: 1rem;
+    margin-top:2rem ;
+}
+.theory-list{
+    list-style-type: none;
+    text-align: left;
+    }

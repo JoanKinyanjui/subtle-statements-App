@@ -1,0 +1,31 @@
+.Total{
+    width: 100vw;
+    height: max-content;
+    margin: auto;
+    margin-top: 3rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.CardTotal{
+    margin: auto;
+}
+.checkout{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    margin-top:5px ;
+    border-radius: 3px;
+    background-color: rgb(251, 183, 124);
+    margin-top: 2rem;
+}
+.back{
+    padding: 2px 20px;
+    border: none;
+    border-radius: 2px;
+    color: sandybrown;
+}
+.specific-total{
+    text-decoration: none;
+    color: black;
+}

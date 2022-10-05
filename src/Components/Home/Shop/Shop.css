@@ -1,0 +1,94 @@
+.Shop{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0rem;
+}
+.product-1{
+    margin: auto;
+    height: auto;
+    width: 40%;
+    margin-top: 1rem;
+    background-image: url('/public/images/jewellery18.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+.product-2{
+    margin: auto;
+    height: auto;
+    background-image: url('/public/images/jewellery26.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 1rem;
+   
+    width: 40%;
+}
+.product-3{
+    margin: auto;
+    height: auto;
+    background-image: url('/public/images/jewellery25.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 1rem;
+    width: 40%;
+}
+.product-4{
+    margin: auto;
+    height: auto;
+    background-image: url('/public/images/jewellery24.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 1rem;
+    width: 40%;
+    
+}
+.sub-produvt{
+    background-color: white;
+    color: sandybrown;
+    padding: 0.2px 3px;
+    border-radius: 1px;
+    margin: auto;
+    width: 60%;
+    font-size: x-small;
+    margin-top: 50%;
+}
+
+.sub-produvt p{
+text-align: center;
+margin: auto;
+font-size: x-small;
+}
+
+@media screen and (min-width: 600px) {
+   .product-1{
+    width: 30%;
+   }
+   .product-2{
+    width: 30%;
+   }
+    .product-3{
+    width: 30%;
+   }
+   .product-4{
+    width: 30%;
+   }
+  }
+  @media screen and (min-width: 1200px) {
+    .product-1{
+     width: 20%;
+    }
+    .product-2{
+     width: 20%;
+    }
+     .product-3{
+     width: 20%;
+    }
+    .product-4{
+     width: 20%;
+    }
+   }
+  

@@ -1,0 +1,25 @@
+.CheckoutSummary{
+    text-align: center;
+    width: 100vw;
+    height: fit-content;
+    margin: 4rem;
+
+}
+.checkoutButton{
+ color: sandybrown;
+ font-size: 12px;
+ border: none;
+ padding-left: 15px;
+ padding-right: 15px;
+ padding-top: 3px;
+ padding-bottom: 3px;
+ border-radius: 3%;
+}
+.CheckoutCard{
+    margin: auto;
+    width: 50%;
+    height: 70%;
+    margin-bottom: 2rem;
+    box-shadow: 1px 1px 3px rgb(244, 213, 186);
+    text-align: center;
+}

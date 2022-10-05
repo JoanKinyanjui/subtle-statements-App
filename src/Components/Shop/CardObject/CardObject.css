@@ -1,0 +1,31 @@
+.CardObject{
+    text-align: center;
+    align-items: center;
+    margin: 20px;
+    justify-content: center;
+
+}
+.cart-sub{
+    color: rgb(20, 20, 20);
+    margin-right: 15px;
+    border: none;
+    background-color: transparent;
+}
+.cart-sub:hover{
+    color: rgb(29, 28, 28);
+    font-size: medium;
+}
+
+.not-liked{
+    color: black;
+    margin-right: 15px;
+    border: none;
+    background-color: transparent;
+}
+.liked{
+    color: rgb(250, 177, 113);
+    margin-right: 15px;
+    border: none;
+    border: none;
+    background-color: transparent;
+}

@@ -1,0 +1,27 @@
+.Main-Single{
+    width: 100vw;
+    height: max-content;
+    display: flex;
+    background-color: rgb(254, 253, 252);
+}
+.Single{
+    flex: 79%;
+    text-align:  center;
+    margin-right: 2rem;
+    float: left;
+}
+.single-container2{
+    flex: 19%;
+    float: right;
+}
+@media only screen and (max-width:860px) {
+    .Main-Single{
+        display: block;
+        flex-direction: column;
+    }
+    .Single{
+        
+        margin-right: 0rem;
+      
+    }
+}

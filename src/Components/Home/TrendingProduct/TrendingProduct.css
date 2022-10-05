@@ -1,0 +1,46 @@
+.TrendingProduct-title p{
+    margin: auto;
+    text-align: center;
+    font-size: large;
+    padding-bottom: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif ;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  
+}
+.trending{
+    color: sandybrown;
+}
+
+.TrendingProduct{
+    width: 100vw;
+    height: max-content;
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-top: 3rem;
+    padding-bottom: 0rem;
+}
+.Trending-Image-div{
+margin: auto;
+font-size: small;
+}
+.Trending-Image-div p{
+    
+font-style: italic;
+font-size: small;
+}
+.Trending-Image{
+    height: 25vh;
+    width: 25vw;
+}
+
+@media screen and (min-width: 600px) {
+    .Trending-Image{
+        height: 30vh;
+        width: 25vw;
+    }
+  }
+  

@@ -1,0 +1,92 @@
+.SinglePostWrapper{
+    width: 100%;
+    height: max-content;
+}
+.SinglePostnav{
+    margin-top: -1rem;
+    padding-top: 1rem;
+    background-color: rgb(250, 228, 195);
+    color: sandybrown;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+    height: max-content;
+    line-height: 3rem;
+    border-radius: 3px;
+}
+.SinglePostImg{
+    width: 100%;
+    height: 70vh;
+    border-radius: 3px;
+}
+.divTitle{
+    display: flex;
+    text-align: center;
+}
+.Title{
+    font-size: x-large;
+    text-transform: uppercase;
+   flex: 80%;
+}
+.CorrectionArea{
+ text-align: right;
+ float: right;
+ flex: 20%
+}
+.CorrectionArea span{
+    margin: 10px; 
+}
+.edit{
+    color: sandybrown;
+    font-size: smaller;
+}
+.delete{
+    font-size: smaller;
+    color: red;
+}
+.writerInfo{
+width: 100%;
+height: 5vh;
+line-height: 5vh;
+color: gray;
+}
+.writerInfo span{
+    margin: auto;
+    font-style: italic;
+    font-size: smaller;
+}
+.author{
+    float: left;
+}
+.DateWritten{
+    float: right;
+}
+.Article{
+    width: 100%;
+    height: max-content;
+    color: rgb(44, 43, 43);
+    font-size: medium;
+    margin: 10px;
+    text-align: left;
+}
+@media only screen and (max-width:680px) {
+    .CorrectionArea span{
+        margin: 5px;
+    }
+    .divTitle{
+        display: flex;
+        flex-direction: column;
+    }
+    .Article{
+        font-size: small;
+    }
+    .SinglePostWrapper{
+        text-align: center;
+    }
+    .SinglePostImg{
+        width: 100%;
+        height: 70vh;
+        border-radius: 3px;
+    }
+ }

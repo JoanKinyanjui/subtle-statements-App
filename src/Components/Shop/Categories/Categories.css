@@ -1,0 +1,10 @@
+.Categories{
+    width: 100vw;
+    height: max-content;
+    display: flex;
+    flex-wrap: wrap;
+}
+.Categories div{
+    margin: auto;
+    margin-top: 10px;
+}

@@ -1,0 +1,9 @@
+.AboutMain-main{
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to bottom,transparent,transparent ,rgb(242, 208, 178)), url('/public/images/unsplash1.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}

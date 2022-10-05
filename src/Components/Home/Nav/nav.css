@@ -1,0 +1,42 @@
+.total-area{
+    width: 100vw;
+    height: 8vh;
+    cursor: pointer;
+    background-color: transparent;
+}
+.Nav{
+    width: 100vw;
+    height: 13vh;
+    text-align: center;
+    margin: auto;
+    padding-top: 0rem;
+}
+.nav-items{
+    list-style-type: none;
+    display: flex;
+    margin: auto;
+    padding-top: 0%;
+    font-size: small;
+    text-decoration: none;
+   
+}
+.nav-item{
+    color: black;
+    text-decoration: none;
+    font-family: System;
+    margin: auto;
+}
+.nav-item:hover{
+    color: sandybrown;
+    font-style: italic;
+}
+.nav-items li{
+    margin: auto;
+     margin-left: 40px;
+}
+@media only screen and(max-width:600px) {
+    .nav-items{
+        width: 100vw;
+        text-align: center;
+    }
+}

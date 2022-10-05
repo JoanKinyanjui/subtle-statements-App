@@ -1,0 +1,21 @@
+.Topbar-about1{
+    display: flex;
+    height: 17vh;
+    text-align: center;
+    padding-bottom: 0rem;
+}
+.Topbar-center-about{
+    padding-top: 2rem;
+}
+
+.ul{
+    list-style-type: none;
+    display: flex;
+    position: absolute;
+    right: 0;
+    color: black;
+}
+.ul li{
+    margin: 6px;
+}
+

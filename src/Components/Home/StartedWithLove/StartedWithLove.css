@@ -1,0 +1,54 @@
+.started{
+    width: 100vw;
+    height: max-content;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+}
+.with{
+    display: flex;
+    flex-wrap: wrap;
+}
+.love{
+    flex: 100%;
+    height: max-content;
+    text-align: left;
+    font-family: System;
+    
+}
+.love h6{
+    margin: auto;
+    font-size: larger;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 15%;
+    margin-bottom: 1rem;
+    color: sandybrown;
+}
+.love p{
+    margin-left: 9px;
+    margin-right: 9px;
+}
+.love-img{
+    width:100%;
+    margin-top: 30%;
+}
+.About-us-1{
+    color: black;
+    background-color: sandybrown;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+@media screen and (min-width: 400px) {
+    .love-img{
+        width:100%;
+        margin-top: 30%;
+    }
+  }
+  @media screen and (min-width: 900px) {
+    .love-img{
+        width:100%;
+        margin-top: 20%;
+    }
+  }
+  

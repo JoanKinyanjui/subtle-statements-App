@@ -1,0 +1,28 @@
+.EmailSubscribing{
+    width: 100vw;
+    height: max-content;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    text-align: center;
+}
+.EmailSubscribing h5{
+    font-family: System;
+    color: sandybrown;
+
+}
+.EmailSubscribing p{
+    color: grey;
+    font-size: medium;
+    font-family: System ;
+}
+.Subscribing-Input{
+    border-top: none;
+    border-bottom: 1px black solid;
+    border-left: none;
+    border-right: none;
+}
+.Submit{
+    border-radius: 5px;
+    border: none;
+    background-color: sandybrown;
+}

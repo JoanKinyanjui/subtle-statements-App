@@ -1,0 +1,79 @@
+.row-shopLayout {
+  display: table;
+  width: 100%;
+  margin: auto;
+  height: 60vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 2rem;
+  background-image: linear-gradient(to bottom,
+  transparent,
+  transparent,
+    rgb(251, 223, 198)
+    ),
+    url("/public/images/shop1.jpg");
+}
+
+.col-1 {
+  width: 100%;
+  margin-top: 40%;
+  text-align: center;
+  background-color: transparent;
+}
+.col-1 h5 {
+  margin: auto;
+  font-size: medium;
+  color: black;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.about1-shoplayout {
+  font-family: Script MT;
+  font-size: 19px;
+  justify-content: left;
+  vertical-align: middle;
+}
+
+.shop-ul {
+  list-style-type: none;
+  font-family: System;
+  font-size: small;
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+}
+.shop-ul li {
+  margin: auto;
+  text-transform: capitalize;
+}
+@media only screen and (max-width: 1200px) {
+  .shop-ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    text-align: center;
+  }
+  .Works {
+    padding: 0px;
+    margin-top: 1rem;
+  }
+  .col-1 {
+    margin-top: 40%;
+  }
+
+  .lists {
+    text-align: center;
+    flex: 33.33%;
+    margin: auto;
+    font-size: 9px;
+  }
+
+  .col-1 {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .col-1 {
+    margin-top: 60%;
+  }
+}

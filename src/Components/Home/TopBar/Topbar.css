@@ -1,0 +1,68 @@
+.Topbar{
+    width: 100vw;
+    display: flex;
+    height: 17vh;
+    text-align: center;
+    padding-bottom: 5rem;
+}
+.Topbar-center{
+    padding-top: 2rem;
+    text-align: center;
+    /* margin-left: 5px; */
+}
+.Topbar-center{
+    padding-top: 2rem;
+    text-align: center;
+}
+.form-search{
+    margin-top: 20%;
+}
+.ul{
+    list-style-type: none;
+    display: flex;
+    position: absolute;
+    right: 0;
+    color: black;
+    margin-top: 2rem;
+}
+.specific{
+    text-decoration: none;
+    margin: auto;
+    color: sandybrown;
+}
+.Topbar-search{
+    outline: none;
+    border-bottom: none;
+    border-right: none;
+    border-top: none ;
+    border-left: none;
+    border-radius: 3px;
+    background-color: transparent;
+}
+.js-name{
+    width: 100vw;
+    height: 20vh;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 3rem;
+    position: absolute;
+    text-shadow: 1px 1px 2px rgb(94, 47, 5);
+    color: sandybrown;
+    left:1%;
+    text-align: center;
+    
+}
+.js-name i{
+    padding-bottom: 1rem;
+}
+@media only screen and (max-width: 800px){
+    .specific{
+        margin: 3px;
+    }
+   
+}
+@media only screen and (max-width: 500px){
+    .js-name{
+   font-size: 1.5rem;
+        
+    }
+}

@@ -1,0 +1,35 @@
+.CarouselComponent{
+    width: 100vw;
+    height: max-content;
+    font-family: System;
+    font-size: medium;
+    color: sandybrown;
+}
+.d-block{
+width: 100vw;
+height: 70vh;
+margin: auto;
+}
+.csS{
+    height: 71vh;
+    }
+@media only screen and(max-width:700px) {
+    .d-block{
+        width: 100vw;
+        height: 50vh;
+        margin: auto;
+        }
+    .csS{
+    height: 51vh;
+    }
+}
+@media only screen and(max-width:400px) {
+    .d-block{
+        width: 100vw;
+        height: 40vh;
+        margin: auto;
+        }
+    .csS{
+    height: 41vh;
+    }
+}

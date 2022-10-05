@@ -1,0 +1,67 @@
+.Services{
+    width: 100vw;
+    height: max-content;
+    margin-top: 4rem;
+}
+.Services p{
+    color: gray;
+    margin-top: 3rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+.offer{
+    text-align: center;
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+   
+}
+
+@media only screen and (max-width:1200px) {
+    .Services p{
+        color: gray;
+        margin-top: 3rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+}
+@media only screen and (max-width:480px) {
+    .Services p{
+        color: gray;
+        margin-top: 3rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+}
+ 
+.Services-display{
+    display: flex;
+    width: 100vw;
+    height: max-content;
+    flex-wrap: wrap;
+}
+.display{
+    flex: 20%;
+    width: 100%;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    text-align: center;
+}
+.display p{
+    margin-right: 15px;
+    margin-left: 15px;
+   
+}
+.display h4{
+    font-size: medium;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+@media only screen and (max-width:960px) {
+   .display{
+       flex: 40%;
+   }
+}
+@media only screen and (max-width:600px) {
+    .display{
+        flex: 60%;
+    }
+}

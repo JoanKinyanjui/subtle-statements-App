@@ -1,0 +1,21 @@
+.Cart{
+    display: flex;
+}
+.Cart-big{
+    display: block;
+    width: 100vw;
+ 
+}
+.stick{
+    width: 100%;
+    height: 10vh;
+    text-align: right;
+}
+.cartItem{
+    margin: auto;
+}
+.cartDiv{
+    width: 100vw;
+    flex-wrap: wrap;
+    display: flex;
+}

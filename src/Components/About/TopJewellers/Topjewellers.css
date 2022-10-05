@@ -1,0 +1,52 @@
+.Top{
+    width: 100vw;
+    height: max-content;
+    padding-bottom: 0rem;
+    padding-top: 2rem;
+}
+.with{
+    display: flex;
+    flex-wrap: wrap;
+}
+.love-top{
+    flex: 50%;
+    height: 60vh;
+    text-align: left;
+    font-family: System;
+    
+}
+.Toplove{
+    flex: 50%;
+    text-align: center;
+    font-size: medium;
+}
+.Toplove h6{
+    flex: 50%;
+    margin: auto;
+    font-size: larger;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 10%;
+    margin-bottom: 1rem;
+    color: sandybrown;
+    text-transform: uppercase;
+}
+.Toplove p{
+    margin-left: 9px;
+    margin-right: 9px;
+    font-family: System;
+    font-size: small;
+}
+.love-img-top{
+    flex: 50%;
+    height: 40vh;
+    width: 70%;
+    margin-left: 1rem;
+}
+.About-us-1{
+    color: black;
+    background-color: sandybrown;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+}
+

@@ -1,0 +1,15 @@
+.Signup{
+    width: 100vw;
+    min-height: 100vh;
+    border: 1px red solid
+}
+
+.me-auto{
+    position: absolute;
+    right: 0;
+}
+.Form-account{
+    margin: auto;
+    text-align: center;
+    margin-top: 5rem;
+}
