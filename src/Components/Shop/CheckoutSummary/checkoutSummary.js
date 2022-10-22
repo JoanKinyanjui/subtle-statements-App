@@ -14,7 +14,7 @@ function CheckoutSummary() {
 
 //HANDLING INPUT ...
 const[phoneNo,setPhoneNo]= useState('0790236990');
-const[amount,setAmount]= useState(``);
+const[amount,setAmount]= useState("");
 
 async function onHandlePayment(e){
         e.preventDefault();

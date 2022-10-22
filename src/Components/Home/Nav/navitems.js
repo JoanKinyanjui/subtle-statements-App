@@ -19,12 +19,12 @@ export const navItems =[
      cName:'nav-item',
      id:3
     },
-{
-    title:'BLOG',
-    path:'/blog',
-    cName:'nav-item',
-    id:4
- },
+// {
+//     title:'BLOG',
+//     path:'/blog',
+//     cName:'nav-item',
+//     id:4
+//  },
 
 
 ]

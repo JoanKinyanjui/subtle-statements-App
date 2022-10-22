@@ -5,13 +5,13 @@
     justify-content: center;
 
 }
-.cart-sub{
+.unliked{
     color: rgb(20, 20, 20);
     margin-right: 15px;
     border: none;
     background-color: transparent;
 }
-.cart-sub:hover{
+.unliked:hover{
     color: rgb(29, 28, 28);
     font-size: medium;
 }
@@ -23,9 +23,8 @@
     background-color: transparent;
 }
 .liked{
-    color: rgb(250, 177, 113);
+    color: rgb(211, 100, 9);
     margin-right: 15px;
-    border: none;
     border: none;
     background-color: transparent;
 }

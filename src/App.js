@@ -67,8 +67,8 @@ useEffect(() => {
 
       
     
-    <Route exact path='/blog'  element={<BlogLayout />}/>
-    <Route exact path='/Single'  element={<Single />}/> 
+    {/* <Route exact path='/blog'  element={<BlogLayout />}/> */}
+    {/* <Route exact path='/Single'  element={<Single />}/>  */}
    
   </Routes>
 

@@ -18,7 +18,8 @@ function CheckoutCard() {
 
   
   const[phoneNo,setPhoneNo]= useState('');
-  const amount= roundedTotal;
+  // const amount= roundedTotal;
+  const amount =2;
   
   async function onHandlePayment(e){
           e.preventDefault();

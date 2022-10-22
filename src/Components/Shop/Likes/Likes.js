@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import Nav from '../../Home/Nav/Nav';
 import {FaHeart} from 'react-icons/fa';
 import { Card, Icon, Image } from 'semantic-ui-react'
@@ -10,17 +10,18 @@ import { addToCart } from '../../../app/features/cartSlice';
 import { clear} from '../../../app/features/likedSlice';
 
 function Likes() {
-  const {likedItems,likedQuantity} = useSelector((store)=>store.likes)
-    const dispatch =useDispatch();
-    // const handleUnLikeClick=(product)=>{
-    //     dispatch(unlike)
-    //     console.log('I just unliked');
-        
-    //     console.log(likedItems)
-    //   }
-      const handleAddToCartt =(product)=>{
+  const {likedItems,likedQuantity} = useSelector((store)=>store.likes);
+  // const {style,setStyle}= useState('unliked')
+  const dispatch =useDispatch();
+
+  const handleAddToCartt =(product)=>{
         dispatch(addToCart(product))
-        }
+  }
+
+  const handleUnLikeClick=(product)=>{
+    dispatch(unlike(product))
+    console.log('I just unliked');
+  }
 
 
   if(likedItems.length <1){
@@ -28,8 +29,8 @@ function Likes() {
       <>
       <Topbar />
       <Nav />
-      <h5 style={{color:'sandybrown',fontFamily:'System'}}>Your have {likedQuantity} Favourites!! <FaHeart /></h5>
-      <div  className='Likes'></div>
+      <h5 style={{color:'sandybrown',fontFamily:'System'}}>Your have 0 Favourites!! <FaHeart /></h5>
+      <div className='Likes'></div>
       </>
     )
   }else{
@@ -37,8 +38,9 @@ function Likes() {
       <div style={{textAlign:'center'}}>
         <Topbar />
         <Nav />
-        <h4 style={{color:'sandybrown',fontFamily:'System'}}>Your Favourites!! <FaHeart /></h4>
-        <div  className='Likes'>
+        <h4 style={{color:'sandybrown',fontFamily:'System'}}>Your {likedQuantity} Favourites!! <FaHeart /></h4>
+        <br />
+        <div className='Likes'>
      
       {likedItems.map((product)=>(
           <Card key={product.id} className='Card'>
@@ -52,8 +54,8 @@ function Likes() {
           </Card.Description>
           <Card.Description className='cart' >
           <a >
-           <button  className='cart-sub'  onClick={()=>{dispatch(unlike(product))}}><FaHeart /></button>
-           <button  className='cart-sub' onClick={()=>handleAddToCartt(product)}> <Icon  name='cart' /></button>
+           <button  className='liked'  onClick={()=>handleUnLikeClick(product)}><FaHeart /></button>
+           <button  className='unliked' onClick={()=>handleAddToCartt(product)}> <Icon  name='cart' /></button>
             
           </a>
           </Card.Description>

@@ -2,10 +2,8 @@ require ('dotenv').config();
 const cors = require('cors');
 const path = require('path');
 const express = require('express');
-const port = process.env.PORT || 3000;
-const client = require('./connection.js');
-const DB_URL = 'postgres://localhost:5432/subtle-statements'
-
+const port = process.env.PORT || 8000;
+let stkPushRouter = express.Router()
 const app = express();
 const axios =require('axios');
 var bodyParser = require('body-parser');
@@ -13,9 +11,6 @@ const request = require('request');
 const session =require('express-session');
 const flash = require('express-flash');
 const bcrypt =require('bcrypt');
-const passport = require('passport');
-const initializePassport = require('./passportConfig');
-initializePassport(passport)
 
 
 let build = 'build';
@@ -33,51 +28,39 @@ app.use(
         resave:false,
         saveUninitialized:false
     })
-);
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
+)
+
 
 //CONNECTING TO THE DATABASE...
-client.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected! to Postgres Subtle Statements database");
-  });
+const mongoose = require('mongoose');
+const connectDB = require("./dbConn");
+const Product = require('./Models/Products');
+connectDB();
+const db = mongoose.connection;
+db.once("open", ()=>{
+    console.log("Successfully connected to the mongoDB");
+    
+    app.listen(port,()=>{
+        console.log(`Server Running on ${port}...`)
+
+});
+});
 
 //REGISTERING NEW USERS...
-app.post('/register',async (req,res)=>{
-  const user = req.body;
-//   const hashedPassword = await bcrypt.hash(req.body.password,10);
-  let insertQuery = `insert into users(name, email, password) 
-                     values('${user.name}', '${user.email}', '${user.password}')`
 
-  client.query(insertQuery, (err, result)=>{
-      if(!err){
-         console.log('Insertion was successful')
-      }
-      else{ console.log(err.message) }
-  })
-  client.end;
-});
 //LOGIN USERS...
-//has o be fixed the code is not working....
-app.post('/login',passport.authenticate("local",{
-    successRedirect:'/home',
-    failureRedirect:'/login',
-    failureFlash: true
-})
-);
+
 
 
 //FETCHING PRODUCTS FROM DATABASE...
 app.get('/products', (req, res)=>{
-    client.query(`Select * from products`, (err, result)=>{
-        if(!err){
-            console.log(result.rows);
-            res.json(result.rows)
-        }
-    });
-    client.end;
+let products = Product.find({},function(err,product){
+    if (err){
+        console.log(err)
+    } else {
+        res.json(products)
+    }
+})
 })
 
 //MPESA...
@@ -102,7 +85,7 @@ const generateToken = async (req,res,next) => {
     })
 }
 
-//M-PESA INTEGRATION...
+//M-PESA ..phone number and amount implementation
 app.post('/stk', generateToken, async(req,res)=>{
     const phoneNo=req.body.phoneNo.substring(1)
     const amount = req.body.amount
@@ -145,10 +128,100 @@ app.post('/stk', generateToken, async(req,res)=>{
         console.log(err.message)
         res.status(400).json(err.message)
      })
+
+
 });
 
+let fetchTransaction = function (req, res, next) {
+    console.log('Fetch initial transaction request...')
+    // Check validity of message
+    if (!req.body) {
+        mpesaFunctions.handleError(res, 'Invalid message received')
+    }
 
-app.listen(port,()=>{
-    console.log(`Server Running on ${port}...`)
+    let query = LipaNaMpesa.findOne({
+        'mpesaInitResponse.MerchantRequestID': req.body.Body.stkCallback.MerchantRequestID,
+        'mpesaInitResponse.CheckoutRequestID': req.body.Body.stkCallback.CheckoutRequestID
+    })
 
-});
+    // execute the query at a later time
+    query.exec(function (err, lipaNaMPesaTransaction) {
+        // handle error
+        if (err || !lipaNaMPesaTransaction) {
+            mpesaFunctions.handleError(res, 'Initial Mpesa transaction not found')
+        }
+        console.log('Initial transaction request found...')
+        // Add transaction to req body
+        req.lipaNaMPesaTransaction = lipaNaMPesaTransaction
+        next()
+    })
+}
+
+let updateTransaction = function (req, res, next) {
+    console.log('update Transaction Callback...')
+
+    let conditions = {
+        'mpesaInitResponse.MerchantRequestID': req.body.Body.stkCallback.MerchantRequestID,
+        'mpesaInitResponse.CheckoutRequestID': req.body.Body.stkCallback.CheckoutRequestID
+    }
+
+    let options = { multi: true }
+
+    // Set callback request to existing transaction
+    req.lipaNaMPesaTransaction.mpesaCallback = req.body.Body
+    // Update existing transaction
+    LipaNaMpesa.update(conditions, req.lipaNaMPesaTransaction, options,
+        function (err) {
+            if (err) {
+                mpesaFunctions.handleError(res, 'Unable to update transaction', Ge)
+            }
+            next()
+        })
+
+}
+
+/**
+ * Fetch reference number from Mpesa callback 'Item' array
+ * @param item
+ * @returns {*}
+ */
+let fetchMpesaReferenceNumber = function (item) {
+    if (item) {
+        if (item.length) {
+            for (let i = 0; i < item.length; i++) if (item[i].Name === 'MpesaReceiptNumber') return item[i].Value
+        }
+    }
+    return ''
+}
+
+/**
+ * Forward request to transaction initiator via callback
+ * @param req
+ * @param res
+ * @param next
+ */
+let forwardRequestToRemoteClient = function (req, res, next) {
+    console.log('Send request to originator..')
+    // Forward request to remote server
+    mpesaFunctions.sendCallbackMpesaTxnToAPIInitiator({
+        url: req.lipaNaMPesaTransaction.mpesaInitRequest.CallBackURL,
+        transaction: {
+            status: req.lipaNaMPesaTransaction.mpesaCallback.stkCallback.ResultCode === 0 ? '00' : req.lipaNaMPesaTransaction.mpesaCallback.stkCallback.ResultCode,
+            message: req.lipaNaMPesaTransaction.mpesaCallback.stkCallback.ResultDesc,
+            merchantRequestId: req.lipaNaMPesaTransaction.merchantRequestId,
+            checkoutRequestId: req.lipaNaMPesaTransaction.checkoutRequestId,
+            mpesaReference: fetchMpesaReferenceNumber(req.lipaNaMPesaTransaction.mpesaCallback.stkCallback.CallbackMetadata.Item)
+        }
+    }, req, res, next)
+}
+
+stkPushRouter.post('/callback',
+    fetchTransaction,
+    updateTransaction,
+    forwardRequestToRemoteClient,
+    function (req, res) {
+        res.json({
+            ResultCode: 0,
+            ResultDesc: 'The service request is processed successfully.'
+        })
+    })
