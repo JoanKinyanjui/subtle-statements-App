@@ -12,10 +12,8 @@ const session =require('express-session');
 const flash = require('express-flash');
 const bcrypt =require('bcrypt');
 
-
 let build = 'build';
 console.log(path.join(__dirname, '..',build))
-
 
 //MIDDLEWARES...
 app.use(cors({origin: true, credentials: true}));
@@ -29,12 +27,11 @@ app.use(
         saveUninitialized:false
     })
 )
-
-
 //CONNECTING TO THE DATABASE...
 const mongoose = require('mongoose');
 const connectDB = require("./dbConn");
 const Product = require('./Models/Products');
+const { default: products } = require('../src/app/features/products');
 connectDB();
 const db = mongoose.connection;
 db.once("open", ()=>{
@@ -42,7 +39,6 @@ db.once("open", ()=>{
     
     app.listen(port,()=>{
         console.log(`Server Running on ${port}...`)
-
 });
 });
 
@@ -58,7 +54,7 @@ let products = Product.find({},function(err,product){
     if (err){
         console.log(err)
     } else {
-        res.json(products)
+        res.json(product)
     }
 })
 })
